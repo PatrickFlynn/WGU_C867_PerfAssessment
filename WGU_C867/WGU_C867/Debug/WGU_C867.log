@@ -1,2 +1,5 @@
-﻿  WGU_C867.cpp
+﻿  roster.cpp
+s:\code\school\wgu_c867_perfassessment\wgu_c867\wgu_c867\roster.cpp(5): warning C4326: return type of 'main' should be 'int' instead of 'void'
+  student.cpp
+  Generating Code...
   WGU_C867.vcxproj -> S:\Code\School\WGU_C867_PerfAssessment\WGU_C867\Debug\WGU_C867.exe
