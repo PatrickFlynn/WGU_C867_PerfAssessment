@@ -42,16 +42,29 @@ void Student::setEmail(string emailAddress) {
 void Student::setAge(int age) {
 	this->age = age;
 }
+
 void Student::setDaysToComplete(int *numDaysToComplete) {
 	for (int i = 0; i < 3; i++) {
 		this->numDaysToComplete[i] = numDaysToComplete[i];
 	}
 }
+void Student::setDegreeProgram(Degree degreeProgram)
+{
+	this->degreeProgram = degreeProgram;
+}
 
+//Constructor that calls setter functions
 Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int numDaysToComplete[3], Degree degreeProgram) {
-	
+	setID(studentID);
+	setFirstName(firstName);
+	setLastName(lastName);
+	setEmail(emailAddress);
+	setAge(age);
+	setDaysToComplete(numDaysToComplete);
+	setDegreeProgram(degreeProgram);
 };
 
+//destructor
 Student::~Student() {
 
 }

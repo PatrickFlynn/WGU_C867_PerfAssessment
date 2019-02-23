@@ -25,15 +25,17 @@ class Student {
 		void setEmail(string);
 		void setAge(int);
 		void setDaysToComplete(int[3]);
-		void setDegreeType(Degree);
+		void setDegreeProgram(Degree);
 
 		//Constructor
 		Student(string, string, string, string, int, int*, Degree);
 
 		//Virtual Print
 		//To Do
+
 		//Destructor
 		~Student();
+
 		//Virtual Get Degree Program
 		//To Do
 
