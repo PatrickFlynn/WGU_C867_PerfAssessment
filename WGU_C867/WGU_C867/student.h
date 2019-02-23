@@ -1,52 +1,51 @@
-#include <string>
-#include <vector>
-#include <iostream>
-using namespace std;
+#ifndef Student_H
+#define Student_H
 
-#ifndef STUDENT_H
-#define STUDENT_H
-#endif // !STUDENT_H_
+#include <string> 
+#include "degree.h"
+using namespace std;
 
 class Student {
 
-public:
-	void printAge();
-	Student(); //Default constructor
-	//ToDo Create constructor with all values
-	Student(string studentID, string firstName, string lastName, string emailAddress, int age, vector<int> daysToCompleteCourses, string degreeTypes) {
-		this->studentID = studentID;
-		this->firstName = firstName;
-		this->lastName = lastName;
-		this->emailAddress = emailAddress;
-		this->age = age;
-		this->daysToCompleteCourses = daysToCompleteCourses;
-		this->degreeTypes = degreeTypes;
-	};
-	//ToDo Create destructor
+	public:
 
-	string getStudentID();
-	string getFirstName();
-	string getLastName();
-	string getEmail();
-	int getAge();
-	vector<int> getDaysToComplete();
-	string getDegreeProgram();
+		//Getter Funcs
+		string getID();
+		string getFirstName();
+		string getLastName();
+		string getEmail();
+		int getAge();
+		int *getDaysToComplete();
+		Degree getDegreeType();
 
-	void setStudentID();
-	void setFirstName();
-	void setLastName();
-	void setEmail();
-	void setAge();
-	void setDaysToComplete();
-	void setDegreeProgram();
+		//Setter Funcs
+		void setID(string);
+		void setFirstName(string);
+		void setLastName(string);
+		void setEmail(string);
+		void setAge(int);
+		void setDaysToComplete(int[3]);
+		void setDegreeType(Degree);
 
-private:
-	string studentID;
-	string firstName;
-	string lastName;
-	string emailAddress;
-	int age;
-	vector<int> daysToCompleteCourses;
-	string degreeTypes;
+		//Constructor
+		Student(string, string, string, string, int, int*, Degree);
+
+		//Virtual Print
+		//To Do
+		//Destructor
+		~Student();
+		//Virtual Get Degree Program
+		//To Do
+
+
+	private:
+		string studentID;
+		string firstName;
+		string lastName;
+		string emailAddress;
+		int age;
+		int numDaysToComplete[3];
+		Degree degreeProgram;
 };
 
+#endif // !Student_H

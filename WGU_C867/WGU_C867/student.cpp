@@ -1,29 +1,12 @@
+#include <iostream>
 #include <string>
-#include <vector>
 #include "student.h"
 using namespace std;
 
-//default constructor
-Student::Student() {
-	studentID = "NA";
-	firstName = "NONE";
-	lastName = "NONE";
-	emailAddress = "NONE";
-	age = 0;
-	vector <int> getDaysToComplete(3, 0);
-	string getDegreeProgram = "TEST";
-	return;
-};
-
-//Function to printout students age
-void Student::printAge() {
-	cout << age;
-};
-
-//Getter Function Definitions
-string Student::getStudentID(){
+//Getter Funcs
+string Student::getID() {
 	return studentID;
-};
+}
 string Student::getFirstName() {
 	return firstName;
 };
@@ -33,35 +16,42 @@ string Student::getLastName() {
 string Student::getEmail() {
 	return emailAddress;
 };
-int Student::getAge(){
+int Student::getAge() {
 	return age;
 };
-vector<int> Student::getDaysToComplete() {
-	return daysToCompleteCourses;
+int *Student::getDaysToComplete() {
+	return numDaysToComplete;
 };
-string Student::getDegreeProgram() {
-	return degreeTypes;
+Degree Student::getDegreeType() {
+	return degreeProgram;
 };
 
-//Setter Function Definitions
-void Student::setStudentID() {
-	return;
+//Setter Funcs
+void Student::setID(string studentID) {
+	this->studentID = studentID;
+}
+void Student::setFirstName(string firstName) {
+	this->firstName = firstName;
+}
+void Student::setLastName(string lastName) {
+	this->lastName = lastName;
+}
+void Student::setEmail(string emailAddress) {
+	this->emailAddress = emailAddress;
+}
+void Student::setAge(int age) {
+	this->age = age;
+}
+void Student::setDaysToComplete(int *numDaysToComplete) {
+	for (int i = 0; i < 3; i++) {
+		this->numDaysToComplete[i] = numDaysToComplete[i];
+	}
+}
+
+Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int numDaysToComplete[3], Degree degreeProgram) {
+	
 };
-void Student::setFirstName() {
-	return;
-};
-void Student::setLastName() {
-	return;
-};
-void Student::setEmail() {
-	return;
-};
-void Student::setAge() {
-	return;
-};
-void Student::setDaysToComplete() {
-	return;
-};
-void Student::setDegreeProgram() {
-	return;
-};
+
+Student::~Student() {
+
+}
