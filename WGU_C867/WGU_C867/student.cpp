@@ -22,8 +22,22 @@ int Student::getAge() {
 int *Student::getDaysToComplete() {
 	return numDaysToComplete;
 };
-Degree Student::getDegreeType() {
-	return degreeProgram;
+string Student::getDegreeType() {
+	/*
+	switch (degreeProgram){
+		case NETWORK:
+			return "NETWORK";
+		case SECURITY:
+			return "SECURITY";
+		case SOFTWARE:
+			return "SOFTWARE";
+		default:
+			return "INCORRECT VALUE ENTERED";
+	}*/
+	//None should be returned if inherited subclass prints do not work
+	return "None";
+	
+
 };
 
 //Setter Funcs
@@ -64,7 +78,16 @@ Student::Student(string studentID, string firstName, string lastName, string ema
 	setDegreeProgram(degreeProgram);
 };
 
+void Student::print() {
+	cout << getID() << 
+		"\tFirst Name: " << getFirstName() << 
+		"\tLast Name: " << getLastName()
+		<< "\tAge: " << getAge() << 
+		"\tdaysInCourse: {" << getDaysToComplete()[0] << ", " << getDaysToComplete()[1] << ", " << getDaysToComplete()[2] << 
+		"}\tDegree Program: " << getDegreeType() << endl;
+}
+
 //destructor
 Student::~Student() {
 
-}
+} 

@@ -16,7 +16,7 @@ class Student {
 		string getEmail();
 		int getAge();
 		int *getDaysToComplete();
-		Degree getDegreeType();
+		string virtual getDegreeType();
 
 		//Setter Funcs
 		void setID(string);
@@ -31,7 +31,7 @@ class Student {
 		Student(string, string, string, string, int, int*, Degree);
 
 		//Virtual Print
-		//To Do
+		void virtual print();
 
 		//Destructor
 		~Student();
@@ -47,6 +47,8 @@ class Student {
 		string emailAddress;
 		int age;
 		int numDaysToComplete[3];
+
+	protected:
 		Degree degreeProgram;
 };
 

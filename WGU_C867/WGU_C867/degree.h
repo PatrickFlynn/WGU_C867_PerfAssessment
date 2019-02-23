@@ -2,7 +2,7 @@
 enum Degree
 {
 	SECURITY,
-	NETWORKING,
+	NETWORK,
 	//Not creating a degree for Data Analytics/Management - My user object will use "SOFTWARE"
 	SOFTWARE
 };

@@ -1,18 +1,33 @@
 #include <iostream>
 #include <string>
 #include <sstream>
-#include "student.h"
+#include "softwareStudent.h"
+#include "securityStudent.h"
+#include "networkStudent.h"
 #include "roster.h"
 
 using namespace std;
 
+Degree returnDegreeEnum(string deg) {
+	if (deg == "NETWORK") {
+		return NETWORK;
+	}
+	else if (deg == "SECURITY") {
+		return SECURITY;
+	}
+	else {
+		return SOFTWARE;
+	}
+}
+
 int main() {
 
 	//My student info as as required in F1
+	cout << "******************My Student Info******************" << endl;
 	cout << "Course Name: Scripting and Programming - Applications - C867" << endl;
 	cout << "Programming Language Used: C++ via Microsoft Visual Studio" << endl;
 	cout << "Student ID: #001086219" << endl;
-	cout << "Student Name: Patrick S. Flynn / PFLYN11@WGU.EDU" << endl;
+	cout << "Student Name: Patrick S. Flynn / PFLYN11@WGU.EDU" << endl << endl;
 
 	const string studentData[] ={ 
 	"A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -24,7 +39,9 @@ int main() {
 	};
 
 	Roster classRoster;
+	classRoster.populateArrayNulls();
 
+	cout << "******************Student Roster******************" << endl;
 	//Main for loop to create roster for each student in student data
 	for (int i = 0; i < numStudents; i++) {
 
@@ -41,16 +58,40 @@ int main() {
 			j++;
 		}
 
+		int numDaysInCourse[3] = { stoi(stagingArray[5]), stoi(stagingArray[6]), stoi(stagingArray[7]) };
+
 		/* Test couts to make sure staging array is populated -- uncomment for test
 		cout << stagingArray[0] << endl;
 		cout << stagingArray[1] << endl;
+		cout << stagingArray[8] << endl;
 		*/
+
+		Degree degreeProgram = returnDegreeEnum(stagingArray[8]);
+		
+		classRoster.add(i, stagingArray[0], stagingArray[1], stagingArray[2], stagingArray[3], stoi(stagingArray[4]), numDaysInCourse, degreeProgram);
+
 	}
 
-	if (classRoster.classRosterArray[0] == nullptr) {
-		cout << "Null!";
-		cout << numStudents;
+	
+	for (int i = 0; i < numStudents; i++) {
+		classRoster.classRosterArray[i]->print();
 	}
+	
 
 	return 0;
 }
+
+void Roster::add(int thisStudent, string studentID, string firstName, string lastName, string emailAddress, int age, int *numDaysToComplete, Degree degreeProgram) {
+	switch (degreeProgram) {
+		case NETWORK:
+			classRosterArray[thisStudent] = new networkStudent(studentID, firstName, lastName, emailAddress, age, numDaysToComplete, degreeProgram);
+			break;
+		case SECURITY:
+			classRosterArray[thisStudent] = new securityStudent(studentID, firstName, lastName, emailAddress, age, numDaysToComplete, degreeProgram);
+			break;
+		case SOFTWARE:
+			classRosterArray[thisStudent] = new softwareStudent(studentID, firstName, lastName, emailAddress, age, numDaysToComplete, degreeProgram);
+			break;
+	}
+	
+};

@@ -5,10 +5,19 @@ using namespace std;
 const int numStudents = 5;
 const int numDataFields = 9;
 
+Degree returnDegreeEnum(string deg);
+
 class Roster {
 	
 public:
 
-	Student *classRosterArray[numStudents]{ nullptr, nullptr, nullptr, nullptr, nullptr};
+	Student *classRosterArray[numStudents];
 
+	void populateArrayNulls() {
+		for (int i = 0; i < numStudents; i++) {
+			classRosterArray[i] = nullptr;
+		}
+	}
+
+	void add(int ArrayPos, string studentID, string firstName, string lastName, string emailAddress, int age, int numDaysToComplete[3], Degree degreeProgram);
 };
