@@ -37,7 +37,7 @@ class Student {
 		~Student();
 
 		//Virtual Get Degree Program
-		//To Do
+		//Leave empty - subclass will polymorph
 
 
 	private:

@@ -20,4 +20,17 @@ public:
 	}
 
 	void add(int ArrayPos, string studentID, string firstName, string lastName, string emailAddress, int age, int numDaysToComplete[3], Degree degreeProgram);
+
+	void printAll();
+
+	void printInvalidEmails();
+
+	void printAverageDaysInCourse(string studentID);
+
+	void printByDegreeProgram(Degree degreeProgram);
+
+	void remove(string studentID);
+
+	~Roster();
+
 };
